@@ -42,7 +42,9 @@ function A_ScaneStudent() {
             }
         });
 
-
+        if(response.status === 200){
+            console.log(Date())
+        }
         setScanResultFile(response.data[0])
 
         console.log(response.data[0].filename)

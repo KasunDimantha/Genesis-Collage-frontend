@@ -8,6 +8,7 @@ import { GiCancel } from "react-icons/gi";
 import FormInput from '../../component/formInput';
 import QRCode from 'qrcode';
 import Webcam from "react-webcam";
+import jsPDF from "jspdf";
 
 
 function A_LoadallStudent() {
@@ -151,14 +152,37 @@ function A_LoadallStudent() {
           required: true
         }
       ]
+
+      const clickGenerateQrCode = async () => {
+        const response = await QRCode.toDataURL(values.email)
+        setImageUrl(response)
+
+        generatePdf(response);
+      }
+
+      const generatePdf = (qrCodeURL) => {
+        var doc = new jsPDF("landscape", "mm", "a4");
+
+        const imageWidth = 80; // Adjust image width as needed
+        const imageHeight = 80; // Adjust image height as needed
+        const imageX = 20; // X coordinate for the image
+        const imageY = 20; // Y coordinate for the image
+
+        doc.addImage(qrCodeURL, "JPEG", imageX, imageY, imageWidth, imageHeight);
+
+        const textX = 30; // X coordinate for the text
+        const textY = 100; // Y coordinate for the text
+        const fontSize = 12; // Adjust font size as needed
+        doc.setFontSize(fontSize);
+        doc.text(values.username, textX, textY);
+        doc.text(values.email, textX, textY + 10);
+        doc.save(`${values.email}.pdf`);
+
+      };
     
       const handleSubmitStudent = async (e) => {
 
         e.preventDefault();
-        const response = await QRCode.toDataURL(values.email)
-        setImageUrl(response)
-
-
 
         const formData = new FormData();
         formData.append('username', values.username)
@@ -351,7 +375,8 @@ function A_LoadallStudent() {
                         {imgSrc ? (
                            <h3>Picture selected</h3>
                         ) : <h3>Take a poto</h3> }
-                        <button className="w-max h-9 pl-5 pr-5 text-white rounded-lg font-bold cursor-pointer mt-4 mb-6 bg-[#941594]">Submit</button>
+                        
+                        <button onClick={clickGenerateQrCode} className="w-max h-9 pl-5 pr-5 text-white rounded-lg font-bold cursor-pointer mt-4 mb-6 bg-[#941594]">Submit</button>
                     </form>
                     
                     </div>
@@ -405,7 +430,7 @@ function A_LoadallStudent() {
                                     <img src={imageUrl} alt="img"/>
                                 </a>
                                 <br />
-                                <span>click to download image</span>
+                                <a>click to download image</a>
                             </div>
                           ) : null}
                         </div>
