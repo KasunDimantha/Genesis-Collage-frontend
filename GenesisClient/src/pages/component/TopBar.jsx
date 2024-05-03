@@ -1,17 +1,35 @@
-import React from "react"
+import React, { useEffect, useState } from 'react';
 import { FaSearch } from "react-icons/fa";
 import { VscAccount } from "react-icons/vsc";
 import { Link } from "react-router-dom";
-import edume from "./img/EDUME.jpeg"
+import genesis from "./img/Genesis.jpeg"
 
 function TopBar() {
+
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollTop = window.scrollY;
+            if (scrollTop > 0) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
   return (
-    <div>
+    <div className={`sticky top-0 z-50 ${isScrolled ?  'bg-black bg-opacity-75 h-16 text-white' : ''}`}>
       <div className="flex 
-                        justify-between 
+                         justify-between 
                         items-center 
                         bg-[#1a3457] 
-                        pt-4 pr-36 pb-3 pl-36
+                        py-1 px-10
                         max-sm:pl-2
                         max-sm:pb-12
                         max-sm:pr-2
@@ -23,9 +41,9 @@ function TopBar() {
 
                 <div className="font-sans text-white">
                     <Link to="/">
-                        <img    src={edume} 
+                        <img    src={genesis} 
                                 alt="Edume Logo"
-                                className="w-20" />
+                                className=" w-20" />
                         <h3 className="text-2xl
                                                 max-sm:text-lg
                                                 max-lg:text-xl"></h3></Link>
@@ -56,7 +74,7 @@ function TopBar() {
                 <div className="items-center
                                 max-lg:text-sm">
                     <div>
-                        <a className="flex justify-center text-base"><VscAccount/></a>
+                        <a className="flex justify-center text-base text-white"><VscAccount/></a>
                     </div>
                     <div className="font-sans text-white">
                         <ul>
@@ -69,16 +87,16 @@ function TopBar() {
                     </div>
                 </div>
             </div>
-            <div>
-                <ul className="flex justify-center  relative h-0 -bottom-6">
-                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semibold ">Home</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semibold ">Programs</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semibold ">Support</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semibold ">About Us</a></li>
-                    <li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semibold ">Contact Us</a></li>
-                    <Link><li className="mr-16 text-base cursor-pointer text-black "><a className="hover:text-lg hover:underline decoration-1 font-semibold ">Courses</a></li></Link>
+            
+            <div className={`sticky top-0 z-50 ${isScrolled ?  'bg-black bg-opacity-75 h-16 text-white' : ''}`}>
+                <ul className="flex justify-center relative h-h0 -bottom-6 font-semibold">
+                    <Link to='/'><li className="mr-16 text-base cursor-pointer  "><a className="hover:text-lg hover:underline decoration-1 font-semiboldx ">Home</a></li></Link>
+                    <li className="mr-16 text-base cursor-pointer  "><a className="hover:text-lg hover:underline decoration-1 font-semiboldx ">Programs</a></li>
+                    <li className="mr-16 text-base cursor-pointer  "><a href="#career" className="hover:text-lg hover:underline decoration-1 font-semiboldx ">Career</a></li>
+                    <li className="mr-16 text-base cursor-pointer  "><a href="#about" className="hover:text-lg hover:underline decoration-1 font-semiboldx ">About Us</a></li>
+                    <li className="mr-16 text-base cursor-pointer "><a href="#contact" className="hover:text-lg hover:underline decoration-1 font-semiboldx ">Contact Us</a></li>
+                    <li className="mr-16 text-base cursor-pointer "><a href="#course" className="hover:text-lg hover:underline decoration-1 font-semiboldx ">Courses</a></li>
                     
-                    <li className="mr-16 text-base cursor-pointer text-white "><a className="hover:text-lg hover:underline decoration-1 font-semibold ">Student Manuals</a></li>
                 </ul>
             </div>
     </div>
