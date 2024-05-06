@@ -31,7 +31,7 @@ function A_HeroSection() {
 
                       <Link to='/a_dashbord/a_ScaneStudentPage'><div className="border-solid border-2 border-[#7d8896] pt-2 pb-2 pl-3 pr-3 rounded-lg bg-[#dce0e6] cursor-pointer">Scane Student</div></Link>
                       
-                      <Link><div className="border-solid border-2 border-[#7d8896] pt-2 pb-2 pl-3 pr-3 rounded-lg bg-[#dce0e6] cursor-pointer">.....................</div></Link>
+                      <Link to='/a_dashbord/a_StudentAtendencePag'><div className="border-solid border-2 border-[#7d8896] pt-2 pb-2 pl-3 pr-3 rounded-lg bg-[#dce0e6] cursor-pointer">Student Atendence and Payments</div></Link>
                       
                       <Link><div className="border-solid border-2 border-[#7d8896] pt-2 pb-2 pl-3 pr-3 rounded-lg bg-[#dce0e6] cursor-pointer">.....................</div></Link>
                       

@@ -26,9 +26,9 @@ function SignUp() {
       name:"username",
       type:"text",
       placeholder:"UserName",
-      errorMessage: " Username should be 3-16 characters and shouldn't include any special character! ",
+      errorMessage: " Username should be 3-25 characters and Can use underscore, dash, and spaces ",
       label:"UserName",
-      pattern: "^[A-Za-z0-9]{3,16}$",
+      pattern: "([a-zA-Z0-9]+([_ -]?[a-zA-Z0-9])*){5,25}",
       required: true
     },
     {
@@ -88,15 +88,25 @@ function SignUp() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    try {
+      const responce = await signup(
+        values.username, 
+        values.email,
+        values.birthday,
+        values.number,
+        values.address,
+        values.password,
+        role)
+
+
+      alert("Sign Up Successfully");
+
+    } catch (error) {
+      console.log(error);
+    }
     
-    await signup(
-            values.username, 
-            values.email,
-            values.birthday,
-            values.number,
-            values.address,
-            values.password,
-            role)
+    
   }
 
   const onChange = (e) => {

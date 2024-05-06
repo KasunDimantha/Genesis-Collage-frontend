@@ -10,6 +10,8 @@ import { useAuthContext } from './hooks/useAuthContext';
 import A_LoadallAdminPage from './pages/Admin/A_LoadallAdminPage';
 import A_LoadallStudentPage from './pages/Admin/A_LoadallStudentPage';
 import A_ScaneStudentPage from './pages/Admin/A_ScaneStudentPage';
+import A_StudentAtendencePage from './pages/Admin/A_StudentAtendencePage';
+import A_StudentPaymentPage from './pages/Admin/A_StudentPaymentPage';
 
 
 
@@ -33,7 +35,8 @@ function App() {
           <Route exact path='/a_dashbord/a_loadalladminPage'     element={<A_LoadallAdminPage/>}/>
           <Route exact path='/a_dashbord/a_loadallstudentPage'   element={<A_LoadallStudentPage/>}/>
           <Route exact path='/a_dashbord/a_ScaneStudentPage'   element={<A_ScaneStudentPage/>}/>
-          
+          <Route exact path='/a_dashbord/a_StudentAtendencePag' element={<A_StudentAtendencePage/>}/>
+          <Route exact path="/s_dashbord/a_StudentPaymentPage"   element={<A_StudentPaymentPage/>} />
           
         </Routes>
       </Router>

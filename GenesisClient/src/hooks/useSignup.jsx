@@ -31,7 +31,7 @@ export const useSignup = () => {
             // Check if response status is 200 (OK)
             if (response.status === 200) {
                 const user = response.data; // Get user data from response
-
+                alert("Signup successful!");
                 // save the user to local storage
                 localStorage.setItem('user', JSON.stringify(user));
           

@@ -293,7 +293,7 @@ function A_LoadallStudent() {
                             placeholder='Search....' 
                             className='mr-20 pl-3'
                             onChange={(e) => setQuery(e.target.value)}  />
-                    <button onClick={() => handleTabClick('addStudent')} class=" text-[#333333] font-semibold hover:text-white py-2 px-4 rounded-lg border border-[#333333] hover:border-transparent mr-3 hover:bg-[#333333]">
+                    <button onClick={() => handleTabClick('addStudent')} className=" text-[#333333] font-semibold hover:text-white py-2 px-4 rounded-lg border border-[#333333] hover:border-transparent mr-3 hover:bg-[#333333]">
                         Add New Student
                     </button>
                     
