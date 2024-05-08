@@ -100,8 +100,6 @@ function SignUp() {
         role)
 
 
-      alert("Sign Up Successfully");
-
     } catch (error) {
       console.log(error);
     }
