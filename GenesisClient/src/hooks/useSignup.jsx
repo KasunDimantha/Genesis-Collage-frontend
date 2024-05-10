@@ -27,7 +27,8 @@ export const useSignup = () => {
                     'Content-Type': 'application/json'
                 }
             });
-        
+
+            console.log(response);        
             // Check if response status is 200 (OK)
             if (response.status === 200) {
                 const user = response.data; // Get user data from response
