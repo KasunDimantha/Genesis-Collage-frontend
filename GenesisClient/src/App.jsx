@@ -25,7 +25,7 @@ function App() {
         <Routes>
           <Route exact path="/"  element={<Home_Page/>}/>
           <Route exact path='/signUpPage' element={<SignUp_Page/>}/>
-          <Route exact path="/signInPage"   element={!user ? <SignIn_Page/> : 
+          <Route exact path="/signInPage"   element={!user ? < SignIn_Page/> : 
                                                     user.role === "Admin" ? <Navigate to="/a_dashbord"/> :
                                                     user.role === "Student" ? <Navigate to="/s_dashbord"/> :
                                                     <Navigate to="/t_dashbord"/>} />
