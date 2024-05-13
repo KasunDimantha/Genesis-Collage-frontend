@@ -71,7 +71,7 @@ function A_Header() {
                 <div className="items-center
                                 max-lg:text-sm">
                     <div>
-                        <a className="flex justify-center text-base"><VscAccount/></a>
+                        <a className="flex justify-center text-base text-white"><VscAccount/></a>
                     </div>
                     <div>
                         {user && (

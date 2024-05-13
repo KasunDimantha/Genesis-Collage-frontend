@@ -124,148 +124,141 @@ function A_StudentPayment() {
     }
 
   return (
-    <div>
-        <div className="min-h-h100 ml-24 mb-10 w-2/3 mt-5">
-            <Link to='/a_dashbord/a_StudentAtendencePag'>
-                <button className="rounded-md bg-[#333333] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#333333] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#333333]">
-                    Back
-                </button>
-            </Link>
-            <div>
-                <div className='flex justify-between'>
-                    <div className="border-2 m-15 p-8 rounded-lg mt-10">
-                        <h1 className='bg-slate-400 text-lg font-bold pl-4 rounded-md'>Student Details</h1>
+    <div className="min-h-screen mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="mt-5">
+        <Link to="/a_dashbord/a_StudentAtendencePag">
+            <button className="rounded-md bg-[#333333] text-sm font-semibold text-white px-3 py-2 shadow-sm hover:bg-[#333333] focus:outline-none focus:ring focus:ring-[#333333]">
+                Back
+            </button>
+        </Link>
+    </div>
 
-                        <div className='flex pt-4'>
-                            <h3 className=''>Student Name  </h3>
-                            <a className='ml-14'>: {studentData.username}</a>
-                        </div>
-                        <div className='flex pt-4'>
-                            <h3 className='mr-2'>Registration number </h3>
-                            <a>: {studentData.stu_number}</a>
-                        </div>
-                        <div className='flex pt-4'>
-                            <h3 className='mr-14'>Student Email  </h3>
-                            <a>: {studentData.email}</a>
-                        </div>
-                        <div className='flex pt-4'>
-                            <h3 className='mr-12'>Student Phone  </h3>
-                            <a>: {studentData.con_number}</a>
-                        </div>
-                        <div className='flex pt-4'>
-                            <h3 className='mr-9'>Student Address  </h3>
-                            <a>: {studentData.address}</a>
-                        </div>
-                        <div className='flex pt-4'>
-                            <h3 className='mr-10'>Student Course  </h3>
-                            <a>: {studentData.stu_course}</a>
-                        </div>
-                    </div>
-
-                    <div>
-                        <form onSubmit={handleSubmitPayment} className="border-2 m-15 mt-10 p-8 mx-32 rounded-lg">
-                            <div class="sm:col-span-4">
-                                <label class="block text-sm font-medium leading-6 text-gray-900">Payment Date</label>
-                                <div class="mt-2">
-                                    <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">                       
-                                    <input 
-                                        type="date" 
-                                        name="name"  
-                                        class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" 
-                                        placeholder="date"
-                                        onChange={(e) => setpDate(e.target.value)}>
-                                    </input>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="sm:col-span-4">
-                                <label class="block text-sm font-medium leading-6 text-gray-900">Payment Amount</label>
-                                <div class="mt-2">
-                                    <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">                       
-                                    <input 
-                                        type="number" 
-                                        name="payment"  
-                                        class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" 
-                                        placeholder="Payment amount"
-                                        onChange={(e) => setpAmount(e.target.value)}>
-                                    </input>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="mt-6 flex items-center justify-end gap-x-6">
-                                <button type='submit' className="rounded-md bg-[#333333] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#333333] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#333333]">
-                                    Submit
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+    <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <div className="bg-white rounded-lg shadow-md p-6">
+            <h1 className="bg-gray-700 text-white text-lg font-semibold py-2 px-4 rounded-md mb-4">Student Details</h1>
+            <div className="space-y-4">
+                <div className="flex items-center">
+                    <h3 className="w-1/3">Student Name:</h3>
+                    <p className="">{studentData.username}</p>
+                </div>
+                <div className="flex items-center">
+                    <h3 className="w-1/3">Registration Number:</h3>
+                    <p>{studentData.stu_number}</p>
+                </div>
+                <div className="flex items-center">
+                    <h3 className="w-1/3">Student Email:</h3>
+                    <p>{studentData.email}</p>
+                </div>
+                <div className="flex items-center">
+                    <h3 className="w-1/3">Student Phone:</h3>
+                    <p>{studentData.con_number}</p>
+                </div>
+                <div className="flex items-center">
+                    <h3 className="w-1/3">Student Address:</h3>
+                    <p>{studentData.address}</p>
+                </div>
+                <div className="flex items-center">
+                    <h3 className="w-1/3">Student Course:</h3>
+                    <p>{studentData.stu_course}</p>
                 </div>
             </div>
+        </div>
 
-            <div className='mt-16'>
-                <button
-                    className={`mr-2 px-4 py-2 focus:outline-none ${activeTab === 'Atendence' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'}`}
-                    onClick={() => handleTabClickAtendence('Atendence')}>
-                    Atendence
-                </button>
+        <div className="bg-white rounded-lg shadow-md p-6">
+            <form onSubmit={handleSubmitPayment}>
+                <label className="block text-sm font-medium text-gray-900">Payment Date</label>
+                <input
+                    type="date"
+                    className="block w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-400 focus:outline-none sm:text-sm mt-2 py-1"
+                    placeholder="Date"
+                    onChange={(e) => setpDate(e.target.value)}
+                />
 
-                <button
-                    className={`mr-2 px-4 py-2 focus:outline-none ${activeTab === 'Payments' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'}`}
-                    onClick={() => handleTabClickPayments('Payments')}>
-                    Payments
-                </button>
-            </div>
+                <label className="block mt-4 text-sm font-medium text-gray-900">Payment Amount</label>
+                <input
+                    type="number"
+                    className="block w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-400 focus:outline-none sm:text-sm mt-2 py-1"
+                    placeholder="Payment Amount"
+                    onChange={(e) => setpAmount(e.target.value)}
+                />
 
-            <div>
-                {activeTab === 'Atendence' && 
-                    <div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th className="py-2 px-4 border-b">No.</th>
-                                    <th className="py-2 px-4 border-b">Attend Date</th>
-                                    <th className="py-2 px-4 border-b">Attend Time</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {attendenceDate && attendenceDate.map((attend) => (
-                                    <tr key={attend._id}>
-                                        <td className="py-2 px-4 border-b">{count++}.</td>
-                                        <td className="py-2 px-4 border-b">{attend.attend_date}</td>
-                                        <td className="py-2 px-4 border-b">{attend.attend_time}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                }
-
-                {activeTab === 'Payments' &&
-                    <div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th className="py-2 px-4 border-b">No.</th>
-                                    <th className="py-2 px-4 border-b">Payment Date</th>
-                                    <th className="py-2 px-4 border-b">Payment Amount</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {paymentData && paymentData.map((payment) => (
-                                    <tr key={payment._id}>
-                                        <td className="py-2 px-4 border-b">{count++}.</td>
-                                        <td className="py-2 px-4 border-b">{payment.payment_date}</td>
-                                        <td className="py-2 px-4 border-b">{payment.course_fees}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                }
-            </div>
+                <div className="mt-6 flex justify-end">
+                    <button
+                        type="submit"
+                        className="rounded-md bg-[#333333] text-sm font-semibold text-white px-3 py-2 shadow-sm hover:bg-[#333333] focus:outline-none focus:ring focus:ring-[#333333]"
+                    >
+                        Submit
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
+
+    <div className="mt-10">
+        <div className="flex justify-end">
+            <button
+                className={`px-4 py-2 focus:outline-none ${activeTab === 'Atendence' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'} mr-3 `}
+                onClick={() => handleTabClickAtendence('Atendence')}
+            >
+                Attendance
+            </button>
+            <button
+                className={`px-4 py-2 focus:outline-none ${activeTab === 'Payments' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'} `}
+                onClick={() => handleTabClickPayments('Payments')}
+            >
+                Payments
+            </button>
+        </div>
+
+        {activeTab === 'Atendence' && (
+            <div className="mt-6">
+                <table className="w-full">
+                    <thead>
+                        <tr className="bg-gray-200">
+                            <th className="py-2 px-4 border-b text-left">No.</th>
+                            <th className="py-2 px-4 border-b text-left">Attend Date</th>
+                            <th className="py-2 px-4 border-b text-left">Attend Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {attendenceDate.map((attend, index) => (
+                            <tr key={attend._id} className="border-b">
+                                <td className="py-2 px-4 ">{index + 1}.</td>
+                                <td className="py-2 px-4 ">{attend.attend_date}</td>
+                                <td className="py-2 px-4 ">{attend.attend_time}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+        )}
+
+        {activeTab === 'Payments' && (
+            <div className="mt-6">
+            <table className="w-full">
+                <thead>
+                    <tr className="bg-gray-200">
+                        <th className="py-2 px-4 border-b text-left">No.</th>
+                        <th className="py-2 px-4 border-b text-left">Payment Date</th>
+                        <th className="py-2 px-4 border-b text-left">Payment Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {paymentData.map((payment, index) => (
+                        <tr key={payment._id} className="border-b">
+                            <td className="py-2 px-4">{index + 1}.</td>
+                            <td className="py-2 px-4">{payment.payment_date}</td>
+                            <td className="py-2 px-4">Rs {payment.course_fees}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+        
+        )}
+    </div>
+</div>
+
   )
 }
 

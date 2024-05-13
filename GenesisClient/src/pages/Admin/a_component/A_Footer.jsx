@@ -9,7 +9,7 @@ import pay from "./a_img/pay.png";
 function A_Footer() {
   return (
     <div>
-      <div className="grid grid-cols-4 gap-8 bg-[#0747a1] pl-16 pt-9 pr-5 pb-5 relative
+      <div className="grid grid-cols-4 gap-8 bg-[#3462a3] pl-16 pt-9 pr-5 pb-5 relative
                       max-sm:grid-cols-1
                       max-sm:text-sm
                       max-lg:grid-cols-2
@@ -45,7 +45,7 @@ function A_Footer() {
         </div>
 
       </div>
-      <div className="flex justify-center text-white bg-black pt-1 pb-1 rounded-sm">
+      <div className="flex justify-center text-white bg-black pt-1 pb-1 ">
         <p>@Edume International Institute</p>
       </div>
     </div>

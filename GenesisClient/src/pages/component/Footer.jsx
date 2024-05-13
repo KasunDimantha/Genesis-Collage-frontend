@@ -9,7 +9,7 @@ import pay from "./img/pay.png";
 function Footer() {
   return (
     <>
-      <div className="grid grid-cols-4 gap-8 bg-[#0747a1] pl-16 pt-9 pr-5 pb-5 relative
+      <div className="grid grid-cols-4 gap-8 bg-[#2979cf] pl-16 pt-9 pr-5 pb-5 relative
                       max-sm:grid-cols-1
                       max-sm:text-sm
                       max-lg:grid-cols-2">

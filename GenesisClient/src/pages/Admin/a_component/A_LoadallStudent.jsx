@@ -276,14 +276,14 @@ function A_LoadallStudent() {
 
   return (
     <div>
-      <div className="  min-h-100 flex">
+      <div className=" min-h-screen flex flex-col md:flex-row">
 
             <A_Admin_Navbar/>
 
             {  activeTab === 'loadStudent' && 
-            <div className="min-h-h100 ml-24 mb-10 w-2/3">
+            <div className="min-h-h100 ml-0 md:ml-24 mb-10 w-full md:w-10/12">
 
-                <div className="bg-gray-300 p-3">
+                <div className="bg-gray-300 p-3 mt-6 ">
                     <h1 className="font-semibold text-xl text-center">All Student</h1>
                 </div>
 
@@ -300,14 +300,14 @@ function A_LoadallStudent() {
                 </div>
 
              {/* add table to load All students*/}
-                <table className="min-w-full bg-white border border-gray-300">
+                <table className="min-w-full bg-white border border-gray-300 mt-6">
                     <thead>
                         <tr>
-                        <th className="py-2 px-4 border-b">No.</th>
-                            <th className="py-2 px-4 border-b">Name</th>
-                            <th className="py-2 px-4 border-b">Email</th>
-                            <th className="py-2 px-4 border-b">Con Number</th>
-                            <th className="py-2 px-4 border-b">Action</th>
+                        <th className=" border-b">No.</th>
+                            <th className=" border-b text-center">Name</th>
+                            <th className=" border-b text-center">Email</th>
+                            <th className=" border-b text-center">Con Number</th>
+                            <th className=" border-b text-center">Action</th>
                     
                     
                         {/* Add more header columns as needed */}
@@ -315,12 +315,12 @@ function A_LoadallStudent() {
                     </thead>
                     <tbody>
                         {workouts && workouts.filter(row => row.username.toLowerCase().includes(query)).map((row) => (
-                        <tr key={row._id}>
-                            <td className="py-2 px-4 border-b">{count++}.</td>
-                            <td className="py-2 px-4 border-b">{row.username}</td>
-                            <td className="py-2 px-4 border-b">{row.email}</td>
-                            <td className="py-2 px-4 border-b">{row.con_number}</td>
-                            <td>
+                        <tr key={row._id} >
+                            <td className="border-b text-center">{count++}.</td>
+                            <td className="border-b text-center">{row.username}</td>
+                            <td className="border-b  text-center ">{row.email}</td>
+                            <td className=" border-b  text-center">{row.con_number}</td>
+                            <td className=' border-b  text-center'>
                               <button onClick={async () => {
                                   try {
                                       const response = await axios.delete('http://localhost:3002/User/' + row._id,  {
